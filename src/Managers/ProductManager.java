@@ -11,19 +11,22 @@ import java.util.Scanner;
  *
  * @author pupil
  */
-public class ShopManager {
+public class ProductManager {
     private Scanner scanner;
 
-    public ShopManager(Scanner scanner) {
-        this.scanner = scanner;
+    public ProductManager() {
+        this.scanner = new Scanner(System.in);
     }
 
     public Product createProduct(){
+        
         Product product = new Product();
+        System.out.println("Name");
+        product.setName(scanner.nextLine());
         System.out.println("Cost");
-        product.setCost(scanner.nextLine());
+        product.setCost(scanner.nextInt());
         System.out.println("Quantity");
-        product.setQuantity(scanner.nextLine());
+        product.setQuantity(scanner.nextInt());
         return product;
     }
 

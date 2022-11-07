@@ -11,10 +11,11 @@ package entity;
  */
 public class Product {
     private String name;
-    private String cost;
-    private String size;
-    private String quantity;
+    private int cost;
+ 
+    private int quantity;
 
+    
     public String getName() {
         return name;
     }
@@ -23,23 +24,19 @@ public class Product {
         this.name = name;
     }
 
-    public String getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(String cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
-    public String getSize() {
-        return size;
-    }
-
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
