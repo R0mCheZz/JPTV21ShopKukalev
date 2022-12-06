@@ -29,7 +29,14 @@ public class ProductManager {
         product.setQuantity(scanner.nextInt());
         return product;
     }
+    public void printListProducts(Product[]products){    
+        for (int i = 0; i < products.length; i++) {
+            Product product = products[i];
+            System.out.printf("Name %s%n", product);
+            System.out.printf("Cost %s%n", product);
+            System.out.printf("Quantity %s%n", product);
+                    }
 
-
+    }
 }
 

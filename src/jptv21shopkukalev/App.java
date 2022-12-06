@@ -23,7 +23,7 @@ public class App {
     private Product[] products;
     private Customer[] customers;
     private Purchase [] purchases;
-    private PurchaseManager purchareManager;
+    private PurchaseManager purchaseManager;
     private ProductManager productManager;
     private CustomerManager customerManager;
     
@@ -65,12 +65,8 @@ public class App {
                     break;
                 case 3:
                     System.out.println("Задача 3. Список продаваемых продуктов");
-                    for (int i = 0; i < products.length; i++) {
-                        Product product = products[i];
-                        System.out.printf("Name %s%n", product);
-                        System.out.printf("Cost %s%n", product);
-                        System.out.printf("Quantity %s%n", product);
-                                }
+                    productManager.printListProducts(products);
+                   
                     break;
                 case 4:
                     System.out.println("Задача 4. Добавить покупателя");
@@ -80,34 +76,18 @@ public class App {
                     break;
                 case 5:
                     System.out.println("Задача 5. Список зарегестрированных покупателей");
-                    for (int j = 0; j < customers.length; j++) {
-                        System.out.printf("Name %s%n", customers[j].getFirstname());
-                        System.out.printf("Lastname %s%n", customers[j].getLastname());
-                        System.out.printf("Wallet %s%n", customers[j].getWallet());
-                                }
+                    customerManager.printListCustomers(customers);
                     break;
                 case 6:
                     System.out.println("Задача 6. Покупка покупателем продукта");
-                    System.out.println("Товар: ");
-                    purchareManager.doBuyProduct();
-                    for(int i = 0; i < products.length; i++){
-                        System.out.println(i+1);
-                        
-                    }
-                    int bought = scanner.nextInt();
-                    System.out.println("Покупатель: ");
-                    for(int j = 0; j < customers.length; j++){
-                        System.out.println(j+1);
-                    }
-                    int bought2 = scanner.nextInt();
-                    int purchase = customers[bought-1].getWallet() -products[bought2 -1].getCost();
-                    customers[bought2 -1].setWallet(purchase);
-                    this.history = Arrays.copyOf(this.history,this.history.length+1);
-                    this.history[this.history.length -1] = products[bought2 -1].getCost();
-                    break;
+                    Purchase purchases = purchaseManager.doPurchase(products, customers);
+                    PurchaseManager pm = new PurchaseManager();
+                    this.purchases = Arrays.copyOf(this.purchases, this.purchases.length+1);
+                    this.purchases [this.customers.length-1] = pm.doPurchase(products, customers);
+                     break;
                 case 7:
                     System.out.println("Задача 7.  Доход магазина за все время работы");
-                   int sum = IntStream.of(history).sum();
+                    int sum = ();
                     System.out.println("Доход магазина за все покупки: "+sum);
                     
                     break;

@@ -29,5 +29,12 @@ public class CustomerManager {
         System.out.println("Wallet");
         customer.setWallet(scanner.nextInt());
         return customer;
-    }    
+    }  
+    public void printListCustomers(Customer[]customers){
+        for (int j = 0; j < customers.length; j++) {
+            System.out.printf("Name %s%n", customers[j].getFirstname());
+            System.out.printf("Lastname %s%n", customers[j].getLastname());
+            System.out.printf("Wallet %s%n", customers[j].getWallet());
+        }
+    }
 }
