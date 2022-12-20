@@ -15,6 +15,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
+
+
 /**
  *
  * @author pupil
@@ -26,13 +28,16 @@ public class App {
     private PurchaseManager purchaseManager;
     private ProductManager productManager;
     private CustomerManager customerManager;
-    
+    private PurchaseManager ph;
+//    
     public App() {
         products = new Product[0];
         customers = new Customer[0];
         purchases = new Purchase [0];
         productManager = new ProductManager();
         customerManager = new CustomerManager();
+        purchaseManager = new PurchaseManager();
+
        
     }
     public void run(){
@@ -77,18 +82,21 @@ public class App {
                 case 5:
                     System.out.println("Задача 5. Список зарегестрированных покупателей");
                     customerManager.printListCustomers(customers);
-                    break;
+                    break; 
                 case 6:
                     System.out.println("Задача 6. Покупка покупателем продукта");
-                    Purchase purchases = purchaseManager.doPurchase(products, customers);
+//                    Purchase purchase = purchaseManager.doPurchase(products, customers);
                     PurchaseManager pm = new PurchaseManager();
                     this.purchases = Arrays.copyOf(this.purchases, this.purchases.length+1);
                     this.purchases [this.customers.length-1] = pm.doPurchase(products, customers);
+                  
                      break;
                 case 7:
                     System.out.println("Задача 7.  Доход магазина за все время работы");
-                    int sum = ();
-                    System.out.println("Доход магазина за все покупки: "+sum);
+                    System.out.println(purchaseManager.getProfite(purchases));
+                    
+                    
+                   
                     
                     break;
                 case 8:

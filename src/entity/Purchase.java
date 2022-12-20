@@ -15,6 +15,7 @@ public class Purchase {
     private Product product;
     private Date date;
     private int quantity;
+    private int history;
 
     public Customer getCustomer() {
         return customer;
@@ -48,6 +49,15 @@ public class Purchase {
         this.quantity = quantity;
     }
 
+    public int getHistory() {
+        return history;
+    }
+
+    public void setHistory(int history) {
+        this.history = history;
+    }
+    
+
     @Override
     public String toString() {
         return "History{" 
@@ -57,5 +67,5 @@ public class Purchase {
                 + ", quantity=" + quantity 
                 + '}';
     }
-    
+
 }

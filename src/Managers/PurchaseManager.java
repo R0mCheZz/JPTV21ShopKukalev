@@ -18,14 +18,14 @@ import java.util.Scanner;
 public class PurchaseManager {
 
     private CustomerManager customerManager;
-    private PurchaseManager purchaseManager;
+    
     private final ProductManager productManager;
     private final Scanner scanner = new Scanner(System.in);
     
     public PurchaseManager(){
        
         productManager = new ProductManager();
-        purchaseManager = new PurchaseManager();
+       
         customerManager = new CustomerManager();
     }
     public Purchase doPurchase(Product[] products, Customer[] customers){
@@ -50,9 +50,9 @@ public class PurchaseManager {
             int numberCustomer = scanner.nextInt();
             System.out.println("__________List products________");
             productManager.printListProducts(products);
-            System.out.println("Which product do you want to buy: ");
+            System.out.println("How many product do you want to buy: ");
             int numberProduct = scanner.nextInt();
-            System.out.println("How many product do you want: ");
+            System.out.println("Which product do you want: ");
             int quantity = scanner.nextInt();
             customers[numberCustomer-1].setWallet((customers[numberCustomer-1].getWallet()-(products[numberProduct-1].getCost()*quantity)));
             products[numberProduct-1].setQuantity((products[numberProduct-1].getQuantity()-quantity));
@@ -70,11 +70,11 @@ public class PurchaseManager {
 
    
 
-    public int getProfite(Purchase[] puchases) { 
+    public int getProfite(Purchase[] purchases) { 
         int sum = 0;
-        for (int i = 0; i < puchases.length; i++) {
-            Purchase purchase = puchases[i];
-            sum = sum + purchase.getProduct().getCost()*purchase.getQuantity();
+        for (int i = 0; i < purchases.length; i++) {
+            Purchase purchase = purchases[i];
+            sum = purchase.getProduct().getCost()*purchase.getQuantity();
             
         }
        return sum;
